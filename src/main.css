@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  background-color: #444;
+}
+
+.profile {
+  color: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: sans-serif;
+  text-shadow: 0 0 20px black;
+}
+
+h1 {
+  font-size: 5em;
+}
+
+p {
+  font-size: 1em;
+}
