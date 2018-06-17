@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import App from "./components/App";
 import { AppContainer } from "react-hot-loader";
-import App from "./counter";
+import Router from "./components/Router";
 
 const render = Component => {
   ReactDOM.render(
@@ -13,14 +12,14 @@ const render = Component => {
   );
 };
 
-render(App);
+render(Router);
 
 // webpack Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept("./counter", () => {
+  module.hot.accept("./components/Router", () => {
     // if you are using harmony modules ({modules:false})
-    render(App);
-    // in all other cases - re-require App manually
-    render(require("./counter"));
+    render(Router);
+    // in all other cases - re-require Router manually
+    render(require("./components/Router"));
   });
 }

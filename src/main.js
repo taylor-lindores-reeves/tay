@@ -1,7 +1,19 @@
-require("babel-runtime/regenerator");
-require("react-hot-loader/patch");
-require("babel-register");
-require("webpack-hot-middleware/client?reload=true");
-require("./main.sass");
+require("./css/main.sass");
 require("./index.html");
-require("./app");
+require("./App");
+console.log(`Environment is: ${process.env.NODE_ENV}`);
+
+const funfun = () => {
+    return class Hello {
+        constructor() {
+            this.event()
+            this.hi = 'hellooooo mother fuckers'
+        }
+
+        event() {
+            console.log(this.hi)
+        }
+    }
+}
+
+funfun() 

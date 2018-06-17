@@ -1,5 +1,6 @@
+@import './_mixins'
+  
 .profile
-  color: white
   height: 100vh
   display: flex
   align-items: center
@@ -8,12 +9,11 @@
   font-family: sans-serif
   text-shadow: 0 0 20px black
 
+  &__title
+    color: red
+    font-size: 5em
 
-h1
-  font-size: 5em
-  color: red
-
-
-p
-  font-size: 1em
-
+    @include tablet
+      font-size: 1em
+  &__img
+    border: 10px solid blue

@@ -4,7 +4,13 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: ["./src/main.js"]
+    main: [
+      "babel-runtime/regenerator",
+      "react-hot-loader/patch",
+      "babel-register",
+      "webpack-hot-middleware/client?reload=true",
+      "./src/main.js"
+    ]
   },
   mode: "development",
   output: {
@@ -25,36 +31,16 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: [
-          {
-            loader: "babel-loader"
-          }
-        ],
+        use: [{ loader: "babel-loader" }],
         exclude: /node_modules/
-      },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: "style-loader" // responsible for injecting css into html
-          },
-          {
-            loader: "css-loader" // linting... This runs in reverse order i.e. this one first
-          }
-        ]
       },
       {
         test: /\.sass$/,
         use: [
-          {
-            loader: "style-loader" // responsible for injecting css into html
-          },
-          {
-            loader: "css-loader" // linting... This runs in reverse order i.e. this one first
-          },
-          {
-            loader: "sass-loader" // linting... This runs in reverse order i.e. this one first
-          }
+          { loader: "style-loader" },
+          { loader: "css-loader" },
+          { loader: "postcss-loader" },
+          { loader: "sass-loader" }
         ]
       },
       {
@@ -74,7 +60,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "images/[name].[ext]"
+              name: "[path][name]-[hash:8].[ext]"
             }
           }
         ]

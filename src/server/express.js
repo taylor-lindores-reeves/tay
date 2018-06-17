@@ -11,12 +11,17 @@ const webpackDevMiddleware = require("webpack-dev-middleware")(
 );
 server.use(webpackDevMiddleware);
 
-const staticMiddleware = express.static("dist"); // takes one argument, the root of our web server
-server.use(staticMiddleware); // serves up the dist folder
+// const staticMiddleware = express.static("dist"); // takes one argument, the root of our web server
+// server.use(staticMiddleware); // serves up the dist folder
 
+const expressStaticGzip = require('express-static-gzip')
+
+server.use(expressStaticGzip("dist"))
 const webpackHotMiddleware = require("webpack-hot-middleware")(compiler);
 server.use(webpackHotMiddleware);
 
-server.listen(8080, () => {
-  console.log("Server is listening...");
+const PORT = process.env.PORT || 8080;
+
+server.listen(PORT, () => {
+  console.log(`Server is listening on https://localhost:${PORT} in ${process.env.NODE_ENV} mode`);
 }); // development server setup
