@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.prod.js",
-    "build": "BABEL_ENV=production webpack --config=config/webpack.prod.js --env.NODE_ENV=production",
+    "build": "webpack --config=config/webpack.prod.js --env.NODE_ENV=production",
     "build:dev": "webpack --config=config/webpack.dev.js",
     "dev": "nodemon --inspect src/server/main.js",
     "prod": "NODE_ENV=production node src/server/main.js"
@@ -38,6 +38,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "brotli-webpack-plugin": "^1.0.0",
     "compression-webpack-plugin": "^1.1.11",
     "css-loader": "^0.28.11",
     "express-static-gzip": "^0.3.2",
