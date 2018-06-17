@@ -1,3 +1,8 @@
+import "./css/main.sass";
+import "./index.html";
+
+console.log(`Environment is: ${process.env.NODE_ENV}`);
+
 import React from "react";
 import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";

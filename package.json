@@ -8,7 +8,7 @@
     "build": "NODE_ENV=production webpack --config=config/webpack.prod.js",
     "build:dev": "webpack --config=config/webpack.dev.js",
     "dev": "nodemon --inspect src/server/main.js",
-    "prod": "node src/server/main.js"
+    "prod": "NODE_ENV=production node src/server/main.js"
   },
   "repository": {
     "type": "git",
