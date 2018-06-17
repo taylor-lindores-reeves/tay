@@ -1,6 +1,5 @@
 require("./css/main.sass");
 require("./index.html");
-require("./App");
-
+require("./app");
 
 console.log(`Environment is: ${process.env.NODE_ENV}`);
