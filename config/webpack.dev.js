@@ -7,7 +7,6 @@ module.exports = {
     main: ["./src/main.js"]
   },
   mode: "development",
-  devtool: "cheap-module-source-map",
   output: {
     filename: "[name]-bundle.js",
     path: path.resolve(__dirname, "../dist"),
@@ -16,8 +15,12 @@ module.exports = {
   devServer: {
     overlay: true,
     hot: true,
-    contentBase: "dist" // everything will be saved out of dist when we run the webpack dev server
+    contentBase: "dist",
+    stats: {
+      colors: true
+    } // everything will be saved out of dist when we run the webpack dev server
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -37,6 +40,20 @@ module.exports = {
           },
           {
             loader: "css-loader" // linting... This runs in reverse order i.e. this one first
+          }
+        ]
+      },
+      {
+        test: /\.sass$/,
+        use: [
+          {
+            loader: "style-loader" // responsible for injecting css into html
+          },
+          {
+            loader: "css-loader" // linting... This runs in reverse order i.e. this one first
+          },
+          {
+            loader: "sass-loader" // linting... This runs in reverse order i.e. this one first
           }
         ]
       },

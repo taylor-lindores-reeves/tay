@@ -1,12 +1,7 @@
 require("babel-runtime/regenerator");
+require("react-hot-loader/patch");
+require("babel-register");
 require("webpack-hot-middleware/client?reload=true");
-require("./main.css");
+require("./main.sass");
 require("./index.html");
-
-const something = async args => {
-  const { a, b } = args;
-  await console.log("arguments" + a + " " + b);
-  console.log("Done");
-};
-
-something({ a: "Hi", b: "there!" });
+require("./app");

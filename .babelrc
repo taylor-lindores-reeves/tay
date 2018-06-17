@@ -1,11 +1,15 @@
 {
-   "presets": [
-      [
-        "env",
-        { "targets": { "browsers": ["last 2 versions"] }, "debug": true }
-      ],
-      ["react"]
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions"]
+        },
+        "debug": false
+      }
     ],
-    "plugins": "transform-runtime"
-  
+    "babel-preset-react"
+  ],
+  "plugins": ["transform-runtime", "react-hot-loader/babel"]
 }
