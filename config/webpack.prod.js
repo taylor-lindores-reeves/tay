@@ -9,7 +9,7 @@ const CompressionPlugin = require("compression-webpack-plugin")
 module.exports = env => {
   return {
     entry: {
-      main: ["./src/App.js"]
+      main: ["./src/main.js"]
     },
     mode: "production",
     output: {

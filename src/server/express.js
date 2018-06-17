@@ -17,6 +17,7 @@ server.use(webpackDevMiddleware);
 const expressStaticGzip = require('express-static-gzip')
 
 server.use(expressStaticGzip("dist"))
+
 const webpackHotMiddleware = require("webpack-hot-middleware")(compiler);
 server.use(webpackHotMiddleware);
 
