@@ -82,7 +82,7 @@ module.exports = env => {
       new CompressionPlugin({
         algorithm: "gzip"
       }),
-      new webpack.DefinePlugin({ "process.env": { NODE_ENV: JSON.stringify("production") } })
+      new webpack.DefinePlugin({ "process.env": { NODE_ENV: JSON.stringify(env.NODE_ENV) } })
     ]
   }
 };

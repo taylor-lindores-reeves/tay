@@ -9,17 +9,16 @@ const webpackDevMiddleware = require("webpack-dev-middleware")(
   compiler,
   config.devServer
 );
+const webpackHotMiddleware = require("webpack-hot-middleware")(compiler, config.devServer);
 server.use(webpackDevMiddleware);
+server.use(webpackHotMiddleware);
 
 // const staticMiddleware = express.static("dist"); // takes one argument, the root of our web server
 // server.use(staticMiddleware); // serves up the dist folder
 
 const expressStaticGzip = require('express-static-gzip')
-
 server.use(expressStaticGzip("dist"))
 
-const webpackHotMiddleware = require("webpack-hot-middleware")(compiler);
-server.use(webpackHotMiddleware);
 
 const PORT = process.env.PORT || 8080;
 
