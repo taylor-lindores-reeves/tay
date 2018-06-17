@@ -32,7 +32,12 @@ module.exports = env => {
           test: /\.sass$/,
           use: [
             { loader: MiniCSSExtractPlugin.loader },
-            { loader: "css-loader" },
+            {
+              loader: "css-loader",
+              options: {
+                minimize: true
+              }
+            },
             { loader: "postcss-loader" },
             { loader: "sass-loader" }
           ]
