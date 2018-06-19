@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import hi from "../img/hi.jpg";
+import { Link } from 'react-router-dom';
 
 class Counter extends Component {
     constructor(props) {
@@ -19,11 +19,12 @@ class Counter extends Component {
     render() {
         return (
             <div onClick={this.climb.bind(this)} className="profile">
-                <h1 className="profile__title">count: {this.state.count}</h1>
-                <img className="profile__img" src={hi} alt="" width="200" />
+                <h1 className="profile__title">counter: {this.state.count}</h1>
+                <Link to="/linked">Send me to linked!</Link>
+                <img className="profile__img" alt="" width="200" />
             </div>
         );
     }
 }
 
-export default Counter;
+export default Counter

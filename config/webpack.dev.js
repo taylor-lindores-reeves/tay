@@ -1,13 +1,14 @@
 const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
 
 module.exports = {
   entry: {
     main: [
-      "babel-runtime/regenerator",
-      "react-hot-loader/patch",
       "babel-register",
+      "react-hot-loader/patch",
+      "babel-runtime/regenerator",
       "webpack-hot-middleware/client?reload=true",
       "./src/main.js"
     ]
@@ -19,6 +20,7 @@ module.exports = {
     publicPath: "/" // root path
   },
   devServer: {
+    historyApiFallback: true,
     overlay: true,
     hot: true,
     contentBase: "dist",
@@ -55,6 +57,14 @@ module.exports = {
         ]
       },
       {
+        test: /\.pug$/,
+        use: [
+          {
+            loader: "pug-loader", // does the linting then passes above
+          }
+        ]
+      },
+      {
         test: /\.(jpg|gif|png|svg)$/,
         use: [
           {
@@ -69,8 +79,17 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("development")
+      }
+    }),
     new HTMLWebpackPlugin({
-      template: "./src/index.html"
-    })
+      template: "./src/index.html",
+      inject: true
+    }),
+    // new BundleAnalyzerPlugin({
+    //   generateStatsFile: true
+    // })
   ]
 };
