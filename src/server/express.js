@@ -25,7 +25,6 @@ if (!isProd) {
   server.use(webpackHotMiddlware)
   console.log("Middleware enabled")
 }
-server.use(dotenv)
 server.use(expressStaticGzip("dist", { enableBrotli: true }))
 server.use(bodyParser.json());
 
