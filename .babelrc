@@ -11,10 +11,13 @@
         "debug": false
       }
     ],
-    "babel-preset-react"
+    "babel-preset-react",
+    "stage-0"
   ],
   "plugins": [
     "transform-runtime",
-    "react-hot-loader/babel"
+    "react-hot-loader/babel",
+    "syntax-dynamic-import",
+    "universal-import"
   ]
 }

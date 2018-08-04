@@ -1,17 +1,18 @@
 import { AppContainer } from "react-hot-loader"
-import React from "react"
+import { Provider } from 'react-redux'
 import { render } from "react-dom"
-import Router from "./components/Router";
-const root = document.getElementById("react-root");
+import React from "react"
+import Router from "./components/Router"
+import store from './store'
 
 render(
-  <AppContainer>
-    <Router />
-  </AppContainer>,
-  root
+  <Provider store={store}>
+    <AppContainer>
+      <Router />
+    </AppContainer>
+  </Provider>,
+  document.getElementById("react-root")
 )
-
-
 
 if (module.hot) {
   module.hot.accept("./components/Router", () => {
@@ -20,7 +21,7 @@ if (module.hot) {
       <AppContainer>
         <HotRoot />
       </AppContainer>,
-      root
+      document.getElementById("react-root")
     )
   })
 }

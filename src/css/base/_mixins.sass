@@ -1,10 +1,20 @@
-$tablet-width: 768px;
-$desktop-width: 1024px;
+$tablet-width: 768px
+$landscape-width: 480px
+$desktop-width: 1024px
+$large-desktop-width: 1280px
 
 @mixin tablet 
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) 
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})
+    @content;
+    
+@mixin landscape
+  @media (min-width: #{$landscape-width}) and (max-width: #{$desktop-width - 1px})
     @content;
 
-@mixin desktop 
-  @media (min-width: #{$desktop-width}) 
+@mixin desktop
+  @media (min-width: #{$desktop-width + 1}) 
+    @content;
+
+@mixin large
+  @media (min-width: #{$desktop-width + 1}) and (max-width: #{$large-desktop-width}) 
     @content;

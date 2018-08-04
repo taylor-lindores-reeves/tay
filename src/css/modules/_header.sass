@@ -1,0 +1,25 @@
+.header
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-flow: column
+  height: 80px
+  width: 100%
+  border-bottom: 1px solid white
+  
+  @include tablet
+    align-items: center
+    height: 150px
+
+  &__title
+    width: 200px
+
+    @include tablet
+      width: 400px
+
+#vivus
+  fill-opacity: 0
+  transition: fill-opacity 1s ease-in
+
+  &.finished
+    fill-opacity: 1

@@ -1,0 +1,44 @@
+.ocean
+    &__flex
+        position: absolute
+        display: flex
+        flex-direction: row
+        justify-content: center
+        top: 160px
+        left: 50%
+        transform: translateX(-50%)
+
+        @include tablet
+            display: none
+
+    &__phone
+        transform: translateX(10%)
+        position: relative
+
+        @include tablet
+            display: none
+
+    &__text-content
+        margin-top: 50px
+        width: 470px
+        position: relative
+        transform: translateX(10%)
+        h1
+            font-size: 4rem
+            font-family: 'Monserrat', sans-serif
+
+        &--mobile
+            display: none
+
+            @include tablet
+                position: absolute
+                display: block
+                left: 50%
+                top: 50vh
+                transform: translateX(-50%)
+                
+                h1
+                    font-size: 12rem
+
+    .efaGep
+        color: white !important

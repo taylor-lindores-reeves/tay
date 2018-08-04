@@ -1,0 +1,75 @@
+.profile
+    position: relative
+    top: calc(100vh - 80px)
+    background: linear-gradient(to top right, #37BFEC, #40b9ae)
+
+    @include tablet
+        top: calc(100vh - 150px)
+
+    &__inner
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        height: 100vh
+
+        @include tablet
+            display: block
+            height: 100%
+
+    &__picture-container
+        flex: 1
+        display: flex
+        justify-content: center
+        height: 100%
+        background-image: url('../img/profile.jpg')
+        background-size: contain
+        background-position: center
+        background-repeat: no-repeat
+
+        @include tablet
+            position: relative
+            height: 1000px
+            width: 100%
+
+    &__text-content
+        height: 100%
+        padding-left: 40px
+        padding-right: 40px
+        flex: 1
+
+        @include tablet
+            position: relative
+            padding-top: 80px
+
+        &--title
+            font-family: "Montserrat"
+            text-align: left
+            font-size: 4rem
+
+            @include tablet
+                font-size: 7rem
+                
+            
+    &__text-content-inner
+        display: flex
+        flex-direction: column
+        align-items: center
+    
+    &__quote-container
+        &--quote
+            text-align: right
+            font-size: 3.7rem
+            font-family: 'Esteban'
+
+            @include tablet
+                font-size: 5.2rem
+
+        &--name
+            font-family: 'Montserrat'
+            font-size: 2.7rem
+            
+            @include tablet
+                font-size: 2.6rem
+                
+

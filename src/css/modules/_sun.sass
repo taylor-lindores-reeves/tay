@@ -1,0 +1,67 @@
+.sun
+    position: relative
+    display: grid
+    grid-template-columns: 4fr 3fr 3fr
+    @include tablet
+        grid-template-columns: 1fr
+        grid-template-rows: 1fr 1fr
+
+    @include large
+        grid-template-columns: 1fr 1fr
+        grid-gap: 20px
+        
+    &--title
+        text-align: left
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        margin-left: 0
+        margin-right: 0
+        margin-bottom: 0
+        padding-bottom: 0
+
+        @include tablet
+            justify-content: flex-start
+            font-size: 7rem
+
+    &--mobile-margin-off
+        @include tablet
+            justify-content: flex-end
+            margin-top: 0
+            
+    &--about
+        font-family: 'Open Sans'
+        margin-top: 0
+
+        @include tablet
+            margin-bottom: 20px
+            font-size: 2.4rem
+            text-align: justify
+
+    &__four
+        @include tablet
+            /* autoprefixer: off */
+            grid-row-start: 1
+            grid-row-end: 2
+            grid-column-start: 1
+            grid-column-end: 1
+            z-index: 1
+
+    &__three
+        &--bg
+            background-image: url('../img/jellyfish.png')
+            background-repeat: no-repeat
+            background-size: contain
+            background-position: center bottom
+ 
+            @include tablet
+                /* autoprefixer: off */
+                grid-column-start: 1
+                grid-column-end: 1
+                grid-row-start: 1
+                grid-row-end: 2
+                opacity: 0.5
+                z-index: 0
+
+            @include large
+                display: none

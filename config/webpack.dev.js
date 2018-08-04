@@ -1,7 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -16,6 +17,7 @@ module.exports = {
   mode: "development",
   output: {
     filename: "[name]-bundle.js",
+    // chunkFilename: "[name].js",
     path: path.resolve(__dirname, "../dist"),
     publicPath: "/" // root path
   },
@@ -39,10 +41,7 @@ module.exports = {
       {
         test: /\.sass$/,
         use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" },
-          { loader: "postcss-loader" },
-          { loader: "sass-loader" }
+          'style-loader', 'css-loader', 'postcss-loader', 'sass-loader'
         ]
       },
       {
@@ -88,6 +87,14 @@ module.exports = {
       template: "./src/index.html",
       inject: true
     }),
+    new BrowserSyncPlugin({
+      // browse to http://localhost:3000/ during development,
+      // ./public directory is being served
+      host: 'localhost',
+      port: 3000,
+      proxy: 'localhost:8080',
+      open: false
+    })
     // new BundleAnalyzerPlugin({
     //   generateStatsFile: true
     // })

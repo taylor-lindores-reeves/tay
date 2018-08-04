@@ -1,0 +1,57 @@
+.contact
+    @include tablet
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        align-items: flex-end
+
+    &__container
+        display: flex
+        flex-direction: column
+
+        @include tablet
+            width: 50%
+    
+    &__label
+        font-family: 'Open Sans'
+        margin-bottom: 5px
+        margin-top: 10px
+        @include tablet
+            font-size: 2.2rem
+
+        &--name
+            margin-top: 0
+
+    &__input
+        font-size: 2rem
+
+    &__name
+        height: 40px
+        
+    &__email
+        height: 40px
+
+    &__message
+        height: 240px
+        display: inline-block
+        vertical-align: top
+        @include tablet
+            height: 140px
+    &--btn
+        background-color: $quinary-color
+        border: 2px solid white
+        width: 100%
+        margin: 15px 0
+        height: 50px
+        cursor: pointer
+        font-size: 2.8rem
+        font-family: 'Fjalla One'
+
+        @include tablet
+            width: 50%
+            height: 100px
+            font-size: 4.6rem
+
+        &:hover
+            background-color: white
+    

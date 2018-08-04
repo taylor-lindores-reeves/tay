@@ -1,0 +1,28 @@
+//- The Email
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width')
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    style
+      include styles.css
+  body
+    table.body(border='0', cellpadding='0', cellspacing='0')
+      tr
+        td  
+        td.container
+          .content
+            table.main
+              tr
+                td.wrapper
+                  table(border='0', cellpadding='0', cellspacing='0')
+                    tr
+                      td
+                        h1 Email:
+                        h2 #{email}
+                        br
+                        h1 Full Name: 
+                        h2 #{name}
+                        br
+                        h1 Message:
+                        h2 #{message}
