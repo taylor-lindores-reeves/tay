@@ -4,7 +4,7 @@ const isProd = process.env.NODE_ENV === "production"
 const expressStaticGzip = require('express-static-gzip')
 const index = require("./index")
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 
 if (!isProd) {
   const webpack = require("webpack")
@@ -25,9 +25,9 @@ if (!isProd) {
   server.use(webpackHotMiddlware)
   console.log("Middleware enabled")
 }
+
 server.use(expressStaticGzip("dist", { enableBrotli: true }))
 server.use(bodyParser.json());
-
 server.use("/", index);
 
 const PORT = process.env.PORT || 8080
