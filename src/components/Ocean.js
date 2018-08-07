@@ -3,7 +3,7 @@ import { hot } from "react-hot-loader";
 import phone from '../img/phone.png'
 import Typing from 'react-typing-animation';
 import Net from './Net'
-import image from '../img/colorscheme.jpg'
+import image from '../img/kaleidascope.svg'
 
 class Ocean extends Component {
     render() {
@@ -25,7 +25,7 @@ class Ocean extends Component {
                     </div>
                 </div>
                 <div className="ocean__text-content--mobile">
-                    <img src={image} alt="" width='80%' />
+                    <img src={image} alt="" width='100%' />
                 </div>
                 <Net></Net>
             </div>

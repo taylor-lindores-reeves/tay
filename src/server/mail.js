@@ -6,7 +6,7 @@ const htmlToText = require('html-to-text');
 const transport = nodemailer.createTransport({
     service: process.env.MAIL_SERVICE,
     host: process.env.MAIL_HOST,
-    secureConnection: false, // use SSL,
+    secureConnection: true,
     port: process.env.MAIL_PORT,
     auth: {
         user: process.env.MAIL_USER,
