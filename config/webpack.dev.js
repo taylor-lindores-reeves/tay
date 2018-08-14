@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -40,9 +40,7 @@ module.exports = {
       },
       {
         test: /\.sass$/,
-        use: [
-          'style-loader', 'css-loader', 'postcss-loader', 'sass-loader'
-        ]
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
       },
       {
         test: /\.html$/,
@@ -59,7 +57,7 @@ module.exports = {
         test: /\.pug$/,
         use: [
           {
-            loader: "pug-loader", // does the linting then passes above
+            loader: "pug-loader" // does the linting then passes above
           }
         ]
       },
@@ -90,9 +88,9 @@ module.exports = {
     new BrowserSyncPlugin({
       // browse to http://localhost:3000/ during development,
       // ./public directory is being served
-      host: 'localhost',
+      host: "localhost",
       port: 3000,
-      proxy: 'localhost:8080',
+      proxy: "localhost:8080",
       open: false
     })
     // new BundleAnalyzerPlugin({
