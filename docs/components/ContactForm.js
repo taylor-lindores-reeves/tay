@@ -39,6 +39,7 @@ class ContactForm extends Component {
       })
     })
       .then(response => {
+        console.log(response);
         if (response.redirected) {
           this.setState({ formSent: true });
         } else this.setState({ formNotSent: true });
