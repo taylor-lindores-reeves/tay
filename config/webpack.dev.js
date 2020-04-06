@@ -11,15 +11,15 @@ module.exports = {
       "react-hot-loader/patch",
       "babel-runtime/regenerator",
       "webpack-hot-middleware/client?reload=true",
-      "./src/main.js"
-    ]
+      ".//docs/main.js",
+    ],
   },
   mode: "development",
   output: {
     filename: "[name]-bundle.js",
     // chunkFilename: "[name].js",
     path: path.resolve(__dirname, "../dist"),
-    publicPath: "/" // root path
+    publicPath: "/", // root path
   },
   devServer: {
     historyApiFallback: true,
@@ -27,8 +27,8 @@ module.exports = {
     hot: true,
     contentBase: "dist",
     stats: {
-      colors: true
-    } // everything will be saved out of dist when we run the webpack dev server
+      colors: true,
+    }, // everything will be saved out of dist when we run the webpack dev server
   },
   devtool: "source-map",
   module: {
@@ -36,11 +36,11 @@ module.exports = {
       {
         test: /\.js$/,
         use: [{ loader: "babel-loader" }],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.sass$/,
-        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
       {
         test: /\.html$/,
@@ -48,18 +48,18 @@ module.exports = {
           {
             loader: "html-loader", // does the linting then passes above
             options: {
-              attrs: ["img:src"] // of the attributes in the element img, the src attribute is what we want to target
-            }
-          }
-        ]
+              attrs: ["img:/docs"], // of the attributes in the element img, the /docs attribute is what we want to target
+            },
+          },
+        ],
       },
       {
         test: /\.pug$/,
         use: [
           {
-            loader: "pug-loader" // does the linting then passes above
-          }
-        ]
+            loader: "pug-loader", // does the linting then passes above
+          },
+        ],
       },
       {
         test: /\.(jpg|gif|png|svg)$/,
@@ -67,23 +67,23 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "[path][name]-[hash:8].[ext]"
-            }
-          }
-        ]
-      }
-    ]
+              name: "[path][name]-[hash:8].[ext]",
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
-        NODE_ENV: JSON.stringify("development")
-      }
+        NODE_ENV: JSON.stringify("development"),
+      },
     }),
     new HTMLWebpackPlugin({
-      template: "./src/index.html",
-      inject: true
+      template: ".//docs/index.html",
+      inject: true,
     }),
     new BrowserSyncPlugin({
       // browse to http://localhost:3000/ during development,
@@ -91,10 +91,10 @@ module.exports = {
       host: "localhost",
       port: 3000,
       proxy: "localhost:8080",
-      open: false
-    })
+      open: false,
+    }),
     // new BundleAnalyzerPlugin({
     //   generateStatsFile: true
     // })
-  ]
+  ],
 };
