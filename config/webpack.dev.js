@@ -11,7 +11,7 @@ module.exports = {
       "react-hot-loader/patch",
       "babel-runtime/regenerator",
       "webpack-hot-middleware/client?reload=true",
-      ".//docs/main.js",
+      "./src/main.js",
     ],
   },
   mode: "development",
@@ -48,7 +48,7 @@ module.exports = {
           {
             loader: "html-loader", // does the linting then passes above
             options: {
-              attrs: ["img:/docs"], // of the attributes in the element img, the /docs attribute is what we want to target
+              attrs: ["img:/src"], // of the attributes in the element img, the /docs attribute is what we want to target
             },
           },
         ],
@@ -82,7 +82,7 @@ module.exports = {
       },
     }),
     new HTMLWebpackPlugin({
-      template: ".//docs/index.html",
+      template: "./src/index.html",
       inject: true,
     }),
     new BrowserSyncPlugin({

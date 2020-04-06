@@ -9,7 +9,7 @@ const BrotliPlugin = require("brotli-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: [".//docs/main.js"],
+    main: ["./src/main.js"],
   },
   mode: "production",
   output: {
@@ -46,7 +46,7 @@ module.exports = {
           {
             loader: "html-loader", // does the linting then passes above
             options: {
-              attrs: ["img:/docs"], // of the attributes in the element img, the /docs attribute is what we want to target
+              attrs: ["img:src"], // of the attributes in the element img, the src attribute is what we want to target
             },
           },
         ],
@@ -87,7 +87,7 @@ module.exports = {
     //     filename: "[name]-bundle.css"
     // }),
     new HTMLWebpackPlugin({
-      template: ".//docs/index.html",
+      template: "./src/index.html",
     }),
     new UglifyJsPlugin(),
     new CompressionPlugin({
