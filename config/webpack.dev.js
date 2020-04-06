@@ -6,13 +6,7 @@ const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: [
-      "babel-register",
-      "react-hot-loader/patch",
-      "babel-runtime/regenerator",
-      "webpack-hot-middleware/client?reload=true",
-      "./src/main.js",
-    ],
+    main: ["@babel/register", "./src/main.js"],
   },
   mode: "development",
   output: {
