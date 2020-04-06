@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "proxy": "http://localhost:8080/",
+  "node": ">= 7.6.0",
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.prod.js",
     "build": "BABEL_ENV=production NODE_ENV=production webpack --config=config/webpack.prod.js",
