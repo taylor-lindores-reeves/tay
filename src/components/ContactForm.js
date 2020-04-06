@@ -9,18 +9,19 @@ class ContactForm extends Component {
       formNotSent: false,
       name: "",
       email: "",
-      message: ""
+      message: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = event =>
+  handleChange(event) {
     this.setState({
       name: event.target.value,
       review: event.target.value,
-      rating: event.target.value
+      rating: event.target.value,
     });
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -30,21 +31,21 @@ class ContactForm extends Component {
       redirect: "follow",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         name: this.state.name,
         email: this.state.email,
-        message: this.state.message
-      })
+        message: this.state.message,
+      }),
     })
-      .then(response => {
+      .then((response) => {
         console.log(response);
         if (response.redirected) {
           this.setState({ formSent: true });
         } else this.setState({ formNotSent: true });
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   }
@@ -59,7 +60,7 @@ class ContactForm extends Component {
           <input
             type="text"
             className="contact__name contact__input"
-            onChange={el => this.setState({ name: el.target.value })}
+            onChange={(el) => this.setState({ name: el.target.value })}
             required
           />
         </div>
@@ -70,7 +71,7 @@ class ContactForm extends Component {
           <input
             type="email"
             className="contact__email contact__input"
-            onChange={el => this.setState({ email: el.target.value })}
+            onChange={(el) => this.setState({ email: el.target.value })}
             required
           />
         </div>
@@ -83,7 +84,7 @@ class ContactForm extends Component {
             cols="30"
             type="input"
             className="contact__message contact__input"
-            onChange={el => this.setState({ message: el.target.value })}
+            onChange={(el) => this.setState({ message: el.target.value })}
             required
           />
         </div>
