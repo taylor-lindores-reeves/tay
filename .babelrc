@@ -12,9 +12,5 @@
     ],
     "@babel/react"
   ],
-  "plugins": [
-    "@babel/plugin-transform-runtime",
-    "syntax-dynamic-import",
-    "universal-import"
-  ]
+  "plugins": ["@babel/plugin-transform-runtime"]
 }
