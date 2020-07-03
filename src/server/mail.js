@@ -3,16 +3,18 @@ const pug = require("pug");
 const juice = require("juice");
 const htmlToText = require("html-to-text");
 
-// Create a SMTP transporter object
 const transport = nodemailer.createTransport({
   service: process.env.MAIL_SERVICE,
   host: process.env.MAIL_HOST,
-  secure: false,
+  secureConnection: true,
   port: process.env.MAIL_PORT,
   auth: {
     user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS
-  }
+    pass: process.env.MAIL_PASS,
+  },
+  tls: {
+    ciphers: "SSLv3",
+  },
 });
 
 const generateHTML = (filename, options = {}) => {
@@ -29,15 +31,14 @@ exports.send = async (options, err) => {
     to: "taylor@lindoresgriffin.co.uk",
     subject: options.subject,
     html,
-    text
+    text,
   };
 
-  return transport
-    .sendMail(mailOptions)
-    .then(stuff => {
-      console.log(stuff);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  return transport.sendMail(mailOptions, function (error, response) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email was successfully sent.");
+    }
+  });
 };

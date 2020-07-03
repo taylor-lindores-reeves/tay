@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
-const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -54,6 +54,8 @@ module.exports = {
             loader: "pug-loader", // does the linting then passes above
           },
         ],
+          }
+        ]
       },
       {
         test: /\.(jpg|gif|png|svg)$/,
@@ -82,11 +84,11 @@ module.exports = {
     new BrowserSyncPlugin({
       // browse to http://localhost:3000/ during development,
       // ./public directory is being served
-      host: "localhost",
+      host: 'localhost',
       port: 3000,
       proxy: "localhost:8080",
       open: false,
-    }),
+    })
     // new BundleAnalyzerPlugin({
     //   generateStatsFile: true
     // })

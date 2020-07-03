@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 (window.webpackJsonp=window.webpackJsonp||[]).push([[1],{198:function(t,e,r){var n;
+=======
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{205:function(t,e,r){"use strict";var n;
+>>>>>>> parent of 474bf6d... Spicey
 /**
  * vivus - JavaScript library to make drawing animation on SVG
  * @version v0.4.5
